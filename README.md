@@ -194,3 +194,16 @@ HTML 會引用：
 - 不支援以任意絕對路徑或 `file://` 存取本機圖片。
 - 使用 `os.OpenRoot` 限制檔案存取範圍。
 - 匯出時不把 App 專用的圖片路由寫入最終 HTML。
+
+## [建置指令整理](https://v3.wails.io/zh-tw/guides/build/building/)
+
+| 目的 | 指令 |
+| --- | --- |
+| 建立新專案 | `wails3 init -n <專案名稱> -t <前端框架>` |
+| 產生 bindings | `wails3 generate bindings` |
+| 更新 Windows 與 macOS 專用圖示檔案 | `wails3 generate icons -input build/appicon.png -windowsfilename build/windows/icon.ico -macfilename build/darwin/icons.icns` |
+| 更新建置資源 | `wails3 update build-assets -config build/config.yml -dir build` |
+| 拉取（下載）用於跨平台交叉編譯的 Docker 映像檔 | `wails3 task setup:docker` |
+| 打包 macOS arm64 | `wails3 package GOOS=darwin GOARCH=arm64` |
+| 建置 Windows x64 | `wails3 build GOOS=windows GOARCH=amd64` |
+| 打包 Linux arm64 | `wails3 build GOOS=linux GOARCH=arm64` |
