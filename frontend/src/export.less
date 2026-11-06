@@ -1,0 +1,162 @@
+@text-color: #20252b;
+@border-color: #dce1e7;
+@muted-color: #64748b;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;
+  color: @text-color;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.markdown-body {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 24px;
+
+  overflow-wrap: anywhere;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.35;
+  }
+
+  h1,
+  h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid @border-color;
+  }
+
+  a {
+    color: #2563eb;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 16px 0;
+  }
+
+  code {
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #eef2f6;
+
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  pre {
+    padding: 16px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    overflow-x: auto;
+
+    code {
+      padding: 0;
+      background: transparent;
+    }
+  }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 4px 16px;
+
+    border-left: 4px solid #94a3b8;
+    background: #f8fafc;
+    color: @muted-color;
+  }
+
+  table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    padding: 8px 12px;
+    border: 1px solid @border-color;
+  }
+
+  th {
+    background: #f1f5f9;
+  }
+
+  hr {
+    margin: 24px 0;
+    border: 0;
+    border-top: 1px solid @border-color;
+  }
+
+  .image-placeholder {
+    color: #92400e;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 15mm;
+}
+
+@media print {
+  .markdown-body {
+    width: auto;
+    padding: 0;
+
+    h1,
+    h2,
+    h3 {
+      break-after: avoid;
+    }
+
+    img,
+    tr {
+      break-inside: avoid;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      overflow: visible;
+    }
+
+    table {
+      display: table;
+      width: auto;
+      max-width: 100%;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+  }
+}
