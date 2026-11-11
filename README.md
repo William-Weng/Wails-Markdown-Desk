@@ -11,7 +11,7 @@
 
 採用「Markdown 原始碼＋HTML 即時預覽」的雙欄設計，不使用 WYSIWYG 編輯模式。保留 Markdown 原始文字的可控性，同時提供檔案讀寫、圖片預覽、外部變更偵測與 HTML 匯出功能。
 
-https://github.com/user-attachments/assets/7d8687bf-6655-47a4-b228-e9a905d887d4
+https://github.com/user-attachments/assets/dec57cf6-1e0d-4a6f-a4b1-5352492b20d5
 
 ## 功能
 
