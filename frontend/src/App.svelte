@@ -199,7 +199,7 @@
     function editorViewMaker(editorHosteditorHost: HTMLElement): EditorView {
 
       const editor = new EditorView({
-          parent: editorHost,
+          parent: editorHosteditorHost,
           doc: initialMarkdown,
           extensions: [
               basicSetup,
