@@ -1,0 +1,279 @@
+// Markdown HTML is generated at runtime; keep these rules global.
+@color-text: #20252b;
+@color-muted: #64748b;
+@color-border: #dce1e7;
+@color-background: #ffffff;
+@color-toolbar: #f8fafc;
+@color-heading: #f1f5f9;
+@color-link: #2563eb;
+@color-code: #eef2f6;
+@font-code: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+.markdown-body {
+
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 24px;
+
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.75;
+
+  overflow-wrap: anywhere;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.35;
+  }
+
+  h1,
+  h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  a {
+    color: @color-link;
+  }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 4px 16px;
+
+    border-left: 4px solid #94a3b8;
+    background: @color-toolbar;
+
+    color: @color-muted;
+  }
+
+  code {
+    padding: 2px 5px;
+
+    border-radius: 4px;
+    background: @color-code;
+
+    font-family: @font-code;
+    font-size: 0.9em;
+  }
+
+  pre {
+    padding: 16px;
+
+    border-radius: 6px;
+    background: @color-heading;
+
+    overflow-x: auto;
+
+    code {
+      padding: 0;
+      background: transparent;
+    }
+  }
+
+  table {
+    display: block;
+
+    width: max-content;
+    max-width: 100%;
+
+    border-collapse: collapse;
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    padding: 8px 12px;
+    border: 1px solid @color-border;
+  }
+
+  th {
+    background: @color-heading;
+  }
+
+  hr {
+    margin: 24px 0;
+    border: 0;
+    border-top: 1px solid @color-border;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .image-placeholder {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    border: 1px dashed #94a3b8;
+    border-radius: 4px;
+
+    color: @color-muted;
+    font-size: 13px;
+  }
+
+  img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+
+  .image-placeholder {
+    display: inline-block;
+
+    max-width: 100%;
+    padding: 8px 12px;
+
+    border: 1px dashed #d97706;
+    border-radius: 4px;
+
+    background: #fffbeb;
+    color: #92400e;
+
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  color: @color-text;
+  background: @color-background;
+}
+
+// MARK: - Preview Code Syntax Highlighting
+
+.markdown-body {
+  pre {
+    background: #f1f5f9;
+    color: #24292f;
+
+    code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+    }
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal {
+    color: #cf222e;
+  }
+
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-doctag {
+    color: #0a3069;
+  }
+
+  .hljs-number,
+  .hljs-built_in,
+  .hljs-type,
+  .hljs-attr {
+    color: #0550ae;
+  }
+
+  .hljs-title,
+  .hljs-title.function_,
+  .hljs-title.class_ {
+    color: #8250df;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #6e7781;
+    font-style: italic;
+  }
+
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-params {
+    color: #953800;
+  }
+
+  .hljs-meta {
+    color: #0550ae;
+  }
+
+  .hljs-tag,
+  .hljs-name {
+    color: #116329;
+  }
+
+  .hljs-subst {
+    color: #24292f;
+  }
+}
+
+// MARK: - Preview Code Highlighting
+
+.markdown-body pre code {
+  color: #24292f;
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal {
+    color: #cf222e;
+  }
+
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-doctag {
+    color: #0a3069;
+  }
+
+  .hljs-number,
+  .hljs-built_in,
+  .hljs-type,
+  .hljs-attr {
+    color: #0550ae;
+  }
+
+  .hljs-title,
+  .hljs-title.function_,
+  .hljs-title.class_ {
+    color: #8250df;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #6e7781;
+    font-style: italic;
+  }
+
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-params {
+    color: #953800;
+  }
+
+  .hljs-meta {
+    color: #0550ae;
+  }
+
+  .hljs-tag,
+  .hljs-name {
+    color: #116329;
+  }
+
+  .hljs-subst {
+    color: #24292f;
+  }
+}

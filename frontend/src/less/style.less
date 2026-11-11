@@ -1,0 +1,591 @@
+// MARK: - Theme
+@import './markdown.less';
+@color-text: #20252b;
+@color-muted: #64748b;
+@color-border: #dce1e7;
+
+@color-background: #ffffff;
+@color-toolbar: #f8fafc;
+@color-heading: #f1f5f9;
+
+@color-link: #2563eb;
+@color-code: #eef2f6;
+
+@font-ui: system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", sans-serif;
+
+@font-code: "SFMono-Regular", Consolas,
+  "Liberation Mono", monospace;
+
+@toolbar-height: 46px;
+@pane-heading-height: 32px;
+@statusbar-height: 28px;
+
+// MARK: - Reset
+
+:root {
+  font-family: @font-ui;
+  color: @color-text;
+  background: @color-background;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background: @color-background;
+  color: @color-text;
+}
+
+// MARK: - Application
+
+.app {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: left;
+  background: @color-background;
+}
+
+// MARK: - Toolbar
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex: 0 0 @toolbar-height;
+  gap: 16px;
+
+  padding: 0 16px;
+
+  border-bottom: 1px solid @color-border;
+  background: @color-toolbar;
+
+  .app-title {
+    font-weight: 650;
+  }
+
+  .toolbar-note {
+    color: @color-muted;
+    font-size: 12px;
+  }
+}
+
+// MARK: - Split View
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  &.editor-pane {
+    border-right: 1px solid @color-border;
+  }
+}
+
+.pane-heading {
+  display: flex;
+  align-items: center;
+
+  flex: 0 0 @pane-heading-height;
+
+  padding: 0 14px;
+
+  border-bottom: 1px solid @color-border;
+  background: @color-heading;
+
+  color: @color-muted;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+// MARK: - Editor
+
+.editor-host {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+// MARK: - Preview
+
+.preview-scroll {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: auto;
+
+  color: @color-text;
+  background: @color-background;
+}
+
+.markdown-body {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 24px;
+
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.75;
+
+  overflow-wrap: anywhere;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.35;
+  }
+
+  h1,
+  h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  a {
+    color: @color-link;
+  }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 4px 16px;
+
+    border-left: 4px solid #94a3b8;
+    background: @color-toolbar;
+
+    color: @color-muted;
+  }
+
+  code {
+    padding: 2px 5px;
+
+    border-radius: 4px;
+    background: @color-code;
+
+    font-family: @font-code;
+    font-size: 0.9em;
+  }
+
+  pre {
+    padding: 16px;
+
+    border-radius: 6px;
+    background: @color-heading;
+
+    overflow-x: auto;
+
+    code {
+      padding: 0;
+      background: transparent;
+    }
+  }
+
+  table {
+    display: block;
+
+    width: max-content;
+    max-width: 100%;
+
+    border-collapse: collapse;
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    padding: 8px 12px;
+    border: 1px solid @color-border;
+  }
+
+  th {
+    background: @color-heading;
+  }
+
+  hr {
+    margin: 24px 0;
+    border: 0;
+    border-top: 1px solid @color-border;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .image-placeholder {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    border: 1px dashed #94a3b8;
+    border-radius: 4px;
+
+    color: @color-muted;
+    font-size: 13px;
+  }
+}
+
+// MARK: - Status Bar
+
+.statusbar {
+  display: flex;
+  align-items: center;
+
+  flex: 0 0 @statusbar-height;
+  gap: 18px;
+
+  padding: 0 12px;
+
+  border-top: 1px solid @color-border;
+  background: @color-toolbar;
+
+  color: @color-muted;
+  font-size: 12px;
+
+  .status-right {
+    margin-left: auto;
+  }
+}
+
+// MARK: - File Toolbar
+
+.toolbar {
+  // macOS 使用延伸標題列時，預留左側視窗按鈕的位置。
+  // 若你的視窗已有獨立原生標題列，可以移除這一行。
+  padding-left: 90px;
+
+  .toolbar-document {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .app-title {
+    flex-shrink: 0;
+    color: @color-text;
+  }
+
+  .document-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: @color-muted;
+    font-size: 12px;
+  }
+
+  .toolbar-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+  }
+
+  button {
+    padding: 5px 12px;
+
+    border: 1px solid @color-border;
+    border-radius: 5px;
+
+    background: #ffffff;
+    color: @color-text;
+    font-family: inherit;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background: @color-heading;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  flex-shrink: 0;
+  padding: 8px 16px;
+
+  border-bottom: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+
+  button {
+    flex-shrink: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+// MARK: - View Mode Toolbar
+
+.toolbar {
+  .toolbar-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 16px;
+  }
+
+  .view-switch {
+    display: inline-flex;
+    align-items: stretch;
+
+    padding: 2px;
+
+    border: 1px solid @color-border;
+    border-radius: 7px;
+
+    background: @color-heading;
+
+    button {
+      margin: 0;
+      padding: 4px 10px;
+
+      border: 1px solid transparent;
+      border-radius: 5px;
+
+      background: transparent;
+      color: @color-muted;
+
+      white-space: nowrap;
+      transition:
+        background-color 120ms ease,
+        color 120ms ease;
+
+      &:hover:not(:disabled) {
+        background: #e2e8f0;
+        color: @color-text;
+      }
+
+      &.active {
+        border-color: @color-border;
+        background: #ffffff;
+        color: @color-text;
+        box-shadow: 0 1px 2px #0000000d;
+      }
+
+      &:focus-visible {
+        outline: 2px solid @color-link;
+        outline-offset: 1px;
+      }
+    }
+  }
+}
+
+// MARK: - Workspace Modes
+
+.workspace {
+  &.mode-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  &.mode-code,
+  &.mode-html {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  &.mode-code {
+    .preview-pane {
+      display: none;
+    }
+
+    .editor-pane {
+      border-right: none;
+    }
+  }
+
+  &.mode-html {
+    .editor-pane {
+      display: none;
+    }
+  }
+}
+
+.markdown-body {
+  img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 16px 0;
+    border-radius: 4px;
+  }
+
+  .image-placeholder {
+    display: inline-block;
+
+    max-width: 100%;
+    padding: 8px 12px;
+
+    border: 1px dashed #d97706;
+    border-radius: 4px;
+
+    background: #fffbeb;
+    color: #92400e;
+
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+}
+
+.external-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  flex-shrink: 0;
+  padding: 8px 16px;
+
+  border-bottom: 1px solid #fde68a;
+  background: #fffbeb;
+  color: #92400e;
+
+  font-size: 13px;
+
+  .external-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+  }
+
+  button {
+    padding: 4px 10px;
+
+    border: 1px solid #f59e0b;
+    border-radius: 4px;
+
+    background: #ffffff;
+    color: inherit;
+
+    font-family: inherit;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &.external-error {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+  }
+}
+
+// MARK: - Editor Link Highlight
+
+@color-editor-link: #facc15;
+.editor-host {
+  .cm-content {
+    .cm-markdown-marker {
+      color: #facc15;
+      opacity: 1;
+    }
+  }
+}
+
+// MARK: - Markdown Syntax Markers
+
+.editor-host {
+  .cm-editor {
+    .cm-content {
+      .cm-markdown-marker {
+        color: @color-editor-link;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// MARK: - Editor Markdown Links
+
+.editor-host .cm-editor .cm-content {
+  // URL：亮青色。
+  .cm-markdown-link {
+    color: #67e8f9;
+    text-decoration: underline;
+    text-decoration-color: rgba(103, 232, 249, 0.6);
+    text-underline-offset: 3px;
+  }
+
+  // Markdown 語法標記：黃色。
+  .cm-markdown-marker {
+    color: #facc15;
+    opacity: 1;
+  }
+}
