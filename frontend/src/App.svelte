@@ -4,7 +4,7 @@
     import * as Model from "../../frontend/bindings/markdowndesk/backend/model/models";
 
     /// MARK: - Wails功能
-    import { tick } from "svelte";
+    import { tick, onMount } from "svelte";
     import { Events } from "@wailsio/runtime";
 
     /// MARK: - 外部套件
@@ -12,12 +12,12 @@
     import { markdown } from "@codemirror/lang-markdown";
     import { defaultHighlightStyle, syntaxHighlighting, } from "@codemirror/language";
     import { Compartment } from "@codemirror/state";
-    import type { EditorViewConfig } from "@codemirror/view";
 
     /// MARK: - ts功能
     import { markdownLinkHighlight, initialMarkdown } from "./lib/setting";
     import { renderMarkdown, clearImageCache } from "./lib/markdown";
     import { buildExportHTML } from "./lib/export-html";
+    import { loadConfig, getConfig } from "./lib/config";
     import type { ViewMode, StatusBarState } from "./lib/types";
 
     /// MARK: - 畫面
@@ -89,6 +89,7 @@
     let isBusy = $state(false);
     let isConfirmingOpen = $state(false);
     let isConfirmingReload = $state(false);
+    let config = $state<Model.AppConfig | null>(null);
 
     let cursorLine = $state(1);
     let cursorColumn = $state(1);
@@ -119,6 +120,12 @@
     const pendingDropMessage = $derived(pendingDropPath ? `目前文件尚未儲存。要開啟 ${pendingDropPath} 嗎？` : "");
     const statusState = $derived<StatusBarState>(isBusy ? "busy" : isDirty ? "dirty" : filePath ? "saved" : "empty" );
 
+    onMount(async () => {
+      await loadConfig();
+      config = await getConfig();
+      console.log(config.imageWebRoute, config.emitKey);
+    });
+
     /// MARK: - 處理副作用
     $effect(() => {
         void updatePreview(source, filePath);
@@ -126,33 +133,35 @@
 
     $effect(() => {
 
-      if (!editorHost) { return; }
+      const host = editorHost;
+      const currentConfig = config;
 
-      const editor = editorViewMaker(editorHost);
+      if (!host || !currentConfig) { return; }
 
-      const unsubscribeFileDrop = Events.On( "markdown-file-dropped", (event: any) => {
+      const editor = editorViewMaker(host);
+      editorView = editor;
+      editor.focus();
+
+      const unsubscribeFileDrop = Events.On(currentConfig.emitKey, (event: any) => {
         const data = event.data as { path?: unknown } | undefined;
-        if (!data || typeof data.path !== "string" || data.path.length === 0) { return; }
-            handleDroppedFiles([data.path]);
-        });
+          if (!data || typeof data.path !== "string" || data.path.length === 0) { return; }
+          handleDroppedFiles([data.path]);
+        }
+      );
 
       let checkingOnFocus = false;
       let focusTimer: ReturnType<typeof setTimeout> | undefined;
 
-      editorView = editor;
-      editor.focus();
-
-      function scheduleFocusCheck() {
+      const scheduleFocusCheck = () => {
         if (focusTimer !== undefined) { clearTimeout(focusTimer); }
         focusTimer = setTimeout(() => { focusTimer = undefined; void checkOnFocus(); }, 150);
-      }
+      };
 
-      function handleVisibilityChange() {
+      const handleVisibilityChange = () => {
         if (document.visibilityState === "visible") { scheduleFocusCheck(); }
-      }
+      };
 
-      async function checkOnFocus() {
-
+      const checkOnFocus = async () => {
         if (checkingOnFocus || isBusy || !document.hasFocus() || document.visibilityState === "hidden") { return; }
         checkingOnFocus = true;
 
@@ -161,7 +170,7 @@
         } finally {
           checkingOnFocus = false;
         }
-      }
+      };
 
       document.addEventListener("error", handlePreviewImageError, true);
       window.addEventListener("focus", scheduleFocusCheck);

@@ -9,6 +9,11 @@ export interface AppConfig {
      * 圖片起始路由
      */
     "imageWebRoute": string;
+
+    /**
+     * 拖拽markdown事件的Key值
+     */
+    "emitKey": string;
 }
 
 /**

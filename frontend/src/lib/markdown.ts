@@ -1,6 +1,7 @@
 import MarkdownIt from 'markdown-it';
 import DOMPurify from 'dompurify';
 import hljs from 'highlight.js';
+import { getConfig } from "./config";
 
 /**
  * 渲染 Markdown 時需要的環境資訊
@@ -8,6 +9,7 @@ import hljs from 'highlight.js';
 type RenderEnvironment = {
   documentPath: string;
   imageRevision: number;
+  imageWebRoute: string;
 };
 
 /** 圖片版本號，每次 clearImageCache() 時 +1 */
@@ -57,8 +59,7 @@ parser.renderer.rules.image = (tokens, index, options, env, renderer): string =>
 
   // 透過後端端點載入文件引用的本機圖片。
   const query = new URLSearchParams({ document: environment.documentPath, src: imageSource, v: String(environment.imageRevision) });
-  token.attrSet('src', `/document-images?${query.toString()}`);
-
+  token.attrSet('src', `${environment.imageWebRoute}/document-images?${query.toString()}`);
   return defaultImageRenderer(tokens, index, options, env, renderer);
 };
 
@@ -96,7 +97,8 @@ export function clearImageCache(): void {
  */
 export async function renderMarkdown(source: string, documentPath: string): Promise<string> {
 
-  const environment: RenderEnvironment = { documentPath, imageRevision };
+  const config = await getConfig();
+  const environment: RenderEnvironment = { documentPath, imageRevision, imageWebRoute: config.imageWebRoute };
   const html = parser.render(source, environment);
 
   return DOMPurify.sanitize(html, { USE_PROFILES: { html: true } });

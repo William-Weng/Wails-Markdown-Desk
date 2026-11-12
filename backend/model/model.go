@@ -10,4 +10,5 @@ type DocumentFile struct {
 // 是要提供給 Web 前端的應用程式設定
 type AppConfig struct {
 	ImageWebRoute string `json:"imageWebRoute"` // 圖片起始路由
+	EmitKey       string `json:"emitKey"`       // 拖拽markdown事件的Key值
 }

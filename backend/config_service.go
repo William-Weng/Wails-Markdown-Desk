@@ -12,5 +12,6 @@ func (service *ConfigService) GetConfig() model.AppConfig {
 
 	return model.AppConfig{
 		ImageWebRoute: configure.ImageWebRoute,
+		EmitKey:       configure.EmitKey,
 	}
 }

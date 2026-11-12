@@ -1,7 +1,8 @@
 import { GetConfig } from "../../../frontend/bindings/MarkdownDesk/backend/configservice";
 
 export interface AppConfig {
-	imageWebRoute: string;
+  imageWebRoute: string;
+  emitKey: string;
 }
 
 export let appConfig: AppConfig | null = null;
