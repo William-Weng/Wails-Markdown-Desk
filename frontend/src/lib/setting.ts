@@ -1,6 +1,9 @@
 import { HighlightStyle } from "@codemirror/language";
 import { tags } from "@lezer/highlight";
 
+/**
+ * Markdown 相關的語法高亮樣式
+ */
 export const markdownLinkHighlight = HighlightStyle.define([
   {
     tag: [tags.url],
@@ -16,6 +19,9 @@ export const markdownLinkHighlight = HighlightStyle.define([
   },
 ]);
 
+/**
+ * 預設載入的 Markdown 範例內容
+ */
 export const initialMarkdown = `# MarkdownDesk
 
 Markdown, preview, export。

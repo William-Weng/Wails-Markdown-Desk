@@ -3,7 +3,7 @@
 <plist version="1.0">
 	<dict>
 		<key>CFBundleDisplayName</key>
-		<string>MarkdownDesk</string>
+		<string>Markdown Desk</string>
 		<key>CFBundleExecutable</key>
 		<string/>
 		<key>CFBundleGetInfoString</key>
@@ -11,13 +11,13 @@
 		<key>CFBundleIdentifier</key>
 		<string>idv.william-weng.wails-markdown-desk</string>
 		<key>CFBundleName</key>
-		<string>MarkdownDesk</string>
+		<string>Markdown Desk</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
-		<string>0.1.0</string>
+		<string>0.2.1</string>
 		<key>CFBundleVersion</key>
-		<string>0.1.0</string>
+		<string>0.2.1</string>
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
 		<key>MinimumOSVersion</key>

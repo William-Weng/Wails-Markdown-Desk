@@ -6,11 +6,11 @@
 name: ""
 arch: ${GOARCH}
 platform: "linux"
-version: "0.1.0"
+version: "0.2.1"
 section: "default"
 priority: "extra"
 maintainer: ${GIT_COMMITTER_NAME} <${GIT_COMMITTER_EMAIL}>
-description: "一個將影片與圖片外框結合的小工具"
+description: "編寫Markdown的簡易Editor"
 vendor: "William-Weng"
 homepage: "https://wails.io"
 license: "MIT"

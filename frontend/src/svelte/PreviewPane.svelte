@@ -1,19 +1,24 @@
 <script lang="ts">
-  let {
-    label = 'Markdown 預覽',
-    heading = 'PREVIEW',
-    html = '',
-  }: {
-    label?: string;
-    heading?: string;
-    html?: string;
-  } = $props();
+    import { handleClick } from "../lib/browser";
+
+    let {
+        label = "Markdown 預覽",
+        heading = "PREVIEW",
+        html = "",
+    }: {
+        label?: string;
+        heading?: string;
+        html?: string;
+    } = $props();
 </script>
 
 <section class="pane preview-pane" aria-label={label}>
   <div class="pane-heading">{heading}</div>
+
   <div class="preview-scroll">
-    <article class="markdown-body">{@html html}</article>
+    <div class="markdown-body" role="presentation" onclick={handleClick} >
+      {@html html}
+    </div>
   </div>
 </section>
 

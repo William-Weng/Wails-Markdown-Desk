@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
-Name=MarkdownDesk
-Comment=一個將影片與圖片外框結合的小工具
+Name=Markdown Desk
+Comment=編寫Markdown的簡易Editor
 # The Exec line includes %u to pass the URL to the application
 Exec=/usr/local/bin/ %u
 Terminal=false
