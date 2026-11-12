@@ -6,7 +6,7 @@ info:
   productIdentifier: "idv.william-weng.wails-markdown-desk"
   description: "編寫Markdown的簡易Editor"
   copyright: "Copyright © 2026, William Weng"
-  comments: "Built with Wails, Go, Svelte and FFmpeg"
+  comments: "Built with Wails、Svelte、TypeScript、CodeMirror and markdown-it"
   version: "0.2.1"
 
 dev_mode:
