@@ -8,8 +8,6 @@
 		<string>Built with Wails、Svelte、TypeScript、CodeMirror and markdown-it</string>
 		<key>CFBundleIconFile</key>
 		<string>icons</string>
-		<key>CFBundleIconName</key>
-		<string>appicon</string>
 		<key>CFBundleIdentifier</key>
 		<string>idv.william-weng.wails-markdown-desk</string>
 		<key>CFBundleName</key>
@@ -17,7 +15,7 @@
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
-		<string>0.2.2</string>
+		<string>0.2.3</string>
 		<key>CFBundleVersion</key>
 		<string>20261126</string>
 		<key>LSMinimumSystemVersion</key>

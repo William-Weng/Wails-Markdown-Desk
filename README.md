@@ -11,7 +11,7 @@
 
 採用「Markdown 原始碼＋HTML 即時預覽」的雙欄設計，不使用 WYSIWYG 編輯模式。保留 Markdown 原始文字的可控性，同時提供檔案讀寫、圖片預覽、外部變更偵測與 HTML 匯出功能。
 
-https://github.com/user-attachments/assets/dec57cf6-1e0d-4a6f-a4b1-5352492b20d5
+https://github.com/user-attachments/assets/21b14c7a-913e-481e-b182-2a9ffd5621e8
 
 ## 功能
 
@@ -55,7 +55,7 @@ HTML 模式指渲染後的預覽，不是 HTML 原始碼檢視。
 
 ### 外部文件變更
 
-切回 MarkdownDesk 時，檢查目前文件是否被其他程式修改，不持續輪詢磁碟。
+切回 Markdown-Desk 時，檢查目前文件是否被其他程式修改，不持續輪詢磁碟。
 
 | 狀況 | 處理方式 |
 | --- | --- |
@@ -182,7 +182,7 @@ HTML 會引用：
 <img src="../assets/example.png" alt="範例圖片">
 ```
 
-匯出的 HTML 可在不啟動 MarkdownDesk 的情況下開啟，但圖片仍依賴原始檔案與相對目錄結構。
+匯出的 HTML 可在不啟動 Markdown-Desk 的情況下開啟，但圖片仍依賴原始檔案與相對目錄結構。
 
 移動或分享文件時，請一併保留圖片與 HTML 的相對位置。網路圖片需要可用的網路連線。
 

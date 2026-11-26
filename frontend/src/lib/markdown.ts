@@ -59,7 +59,7 @@ parser.renderer.rules.image = (tokens, index, options, env, renderer): string =>
 
   // 透過後端端點載入文件引用的本機圖片。
   const query = new URLSearchParams({ document: environment.documentPath, src: imageSource, v: String(environment.imageRevision) });
-  token.attrSet('src', `${environment.imageWebRoute}/document-images?${query.toString()}`);
+  token.attrSet('src', `${environment.imageWebRoute}?${query.toString()}`);
   return defaultImageRenderer(tokens, index, options, env, renderer);
 };
 

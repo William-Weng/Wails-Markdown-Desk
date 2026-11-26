@@ -22,7 +22,7 @@ export const markdownLinkHighlight = HighlightStyle.define([
 /**
  * 預設載入的 Markdown 範例內容
  */
-export const initialMarkdown = `# MarkdownDesk
+export const initialMarkdown = `# Markdown Desk
 
 Markdown, preview, export。
 
