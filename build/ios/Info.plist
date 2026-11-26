@@ -7,7 +7,7 @@
 		<key>CFBundleExecutable</key>
 		<string/>
 		<key>CFBundleGetInfoString</key>
-		<string>Built with Wails, Go, Svelte and FFmpeg</string>
+		<string>Built with Wails、Svelte、TypeScript、CodeMirror and markdown-it</string>
 		<key>CFBundleIdentifier</key>
 		<string>idv.william-weng.wails-markdown-desk</string>
 		<key>CFBundleName</key>
@@ -15,9 +15,9 @@
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
-		<string>0.2.1</string>
+		<string>0.2.2</string>
 		<key>CFBundleVersion</key>
-		<string>0.2.1</string>
+		<string>0.2.2</string>
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
 		<key>MinimumOSVersion</key>

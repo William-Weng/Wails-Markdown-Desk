@@ -1,15 +1,15 @@
 {
 	"fixed": {
-		"file_version": "0.2.1"
+		"file_version": "0.2.2"
 	},
 	"info": {
 		"0409": {
-			"ProductVersion": "0.2.1",
+			"ProductVersion": "0.2.2",
 			"CompanyName": "William-Weng",
 			"FileDescription": "編寫Markdown的簡易Editor",
 			"LegalCopyright": "Copyright © 2026, William Weng",
 			"ProductName": "Markdown Desk",
-			"Comments": "Built with Wails, Go, Svelte and FFmpeg"
+			"Comments": "Built with Wails、Svelte、TypeScript、CodeMirror and markdown-it"
 		}
 	}
 }

@@ -878,11 +878,17 @@
         <ExternalFileBanner variant="conflict" message={pendingDropMessage} disabled={isBusy} confirmLabel="開啟" cancelLabel="取消" onconfirm={confirmDroppedFile} oncancel={cancelPendingDropPath}/>
     {/if}
 
-    <div class="workspace" class:mode-code={viewMode === "code"} class:mode-html={viewMode === "html"} class:mode-split={viewMode === "split"}>
-        <EditorPane fontSize={editorFontSize} minFontSize={MIN_EDITOR_FONT_SIZE} maxFontSize={MAX_EDITOR_FONT_SIZE} onzoomout={zoomEditorOut} onzoomin={zoomEditorIn} onzoomreset={resetEditorZoom}>
-            <div class="editor-host" bind:this={editorHost}></div>
-        </EditorPane>
-        <PreviewPane html={previewHtml} />
+    <div class="workspace">
+        <div class="panes" class:code-only={viewMode === "code"} class:html-only={viewMode === "html"}>
+            <div class="pane-slot" inert={viewMode === "html"}>
+                <EditorPane fontSize={editorFontSize} minFontSize={MIN_EDITOR_FONT_SIZE} maxFontSize={MAX_EDITOR_FONT_SIZE} onzoomout={zoomEditorOut} onzoomin={zoomEditorIn} onzoomreset={resetEditorZoom}>
+                    <div class="editor-host" bind:this={editorHost}></div>
+                </EditorPane>
+            </div>
+            <div class="pane-slot" inert={viewMode === "code"}>
+                <PreviewPane html={previewHtml} />
+            </div>
+        </div>
     </div>
 
     <ExportBanner message={exportMessage} ondismiss={() => (exportMessage = "")}/>

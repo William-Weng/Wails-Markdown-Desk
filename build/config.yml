@@ -7,7 +7,7 @@ info:
   description: "編寫Markdown的簡易Editor"
   copyright: "Copyright © 2026, William Weng"
   comments: "Built with Wails、Svelte、TypeScript、CodeMirror and markdown-it"
-  version: "0.2.1"
+  version: "0.2.2"
 
 dev_mode:
   root_path: .
